@@ -25,8 +25,7 @@ const HotCollections = () => {
 
     fetchCollection()
   }, [])
-  // isLoading && console.log(123)
-  // !isLoading && console.log(hotCollections)
+
 
   return (
     <section id="section-collections" className="no-bottom">
@@ -41,7 +40,7 @@ const HotCollections = () => {
           {
             isLoading ? (<HotCollectionSkeleton/> ): (<Carousel hotCollections={hotCollections} />)
           }
-          {/* {isLoading ? (): } */}
+
 
         </div>
       </div>
