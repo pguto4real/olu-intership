@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import AuthorImage from "../../images/author_thumbnail.jpg";
 import nftImage from "../../images/nftImage.jpg";
 
-const Carousel = ({ hotCollections }) => {
+const HotCarousel = ({ hotCollections }) => {
   const options = {
     loop: true,
     margin: 10,
@@ -46,7 +46,7 @@ const Carousel = ({ hotCollections }) => {
                 </Link>
               </div>
               <div className="nft_coll_pp">
-                <Link to="/author">
+                <Link to={`/author/${hotCollection.authorId}`}>
                   <img className="lazy pp-coll" src={hotCollection.authorImage|| AuthorImage} alt="" />
                 </Link>
                 <i className="fa fa-check"></i>
@@ -66,4 +66,4 @@ const Carousel = ({ hotCollections }) => {
   )
 }
 
-export default Carousel
+export default HotCarousel
