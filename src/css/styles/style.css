@@ -12706,7 +12706,7 @@ a.read_more i {
 
 .switch {
   margin-bottom: -5px;
-  -webkit-appearance: none;
+ appearance: none;
   height: 24px;
   width: 44px;
   background-color: #eeeeee;
@@ -13181,7 +13181,9 @@ a.read_more i {
   -webkit-border-radius: 10px;
   margin-bottom: 10px;
 }
-
+.nft__wrapper{
+  padding: 12px;
+}
 .nft_coll.style-2 {
   border: none;
   background: none !important;
@@ -15145,7 +15147,7 @@ a.btn-slider:hover {
   margin: 0 6px;
   display: inline-block;
   zoom: 1;
-  *display: inline;
+  display: inline;
 }
 
 .testi-slider .flex-control-paging li a {
