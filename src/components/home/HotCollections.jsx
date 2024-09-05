@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import Carousel from "../UI/Carousel";
+
 import axios from "axios";
 import HotCollectionSkeleton from "../UI/HotCollectionSkeleton";
+import HotCarousel from "../UI/HotCarousel";
+
 
 const HotCollections = () => {
   const [hotCollections, setHotCollections] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
+
+  const [isHotLoading, setIsHotLoading] = useState(true)
+
   async function fetchCollection() {
     try {
       const { data } = await axios.get(`https://us-central1-nft-cloud-functions.cloudfunctions.net/hotCollections`)
@@ -16,11 +20,14 @@ const HotCollections = () => {
       console.error("Error fetching data: ", error);
     }
     finally {
-      setIsLoading(false)
+      setIsHotLoading(false)
     }
 
 
   }
+
+
+  
   useEffect(() => {
 
     fetchCollection()
@@ -39,7 +46,7 @@ const HotCollections = () => {
             </div>
           </div>
           {
-            isLoading ? (<HotCollectionSkeleton/> ): (<Carousel hotCollections={hotCollections} />)
+            isHotLoading ? (<HotCollectionSkeleton/> ): (<HotCarousel hotCollections={hotCollections} />)
           }
           {/* {isLoading ? (): } */}
 
