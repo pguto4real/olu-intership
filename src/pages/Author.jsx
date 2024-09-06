@@ -15,21 +15,20 @@ const Author = () => {
   const [follower, setFollower] = useState(0);
   const { id } = useParams();
   const handleFollow = () => {
-      if(!follow){
-        setFollower(follower+1)
-      }
-      else
-      {
-        setFollower(follower-1)
-      }
-      setFollow(!follow)
+    if (!follow) {
+      setFollower(follower + 1)
+    }
+    else {
+      setFollower(follower - 1)
+    }
+    setFollow(!follow)
   };
   const { fetchData } = GetData();
   const handleCopy = async (textToCopy) => {
     try {
       // Copy text to the clipboard
       await navigator.clipboard.writeText(textToCopy);
-      
+
       // Set the success message
       setCopySuccess('copied');
 
@@ -40,26 +39,24 @@ const Author = () => {
     } catch (err) {
       // Set an error message if the copy fails
       setCopySuccess('Failed to copy text.');
-      
+
       // Clear the error message after 3 seconds
       setTimeout(() => {
         setCopySuccess('');
       }, 100);
     }
   };
-  const fetchAuthorData = async (filterData) => {
+  const fetchAuthorData = async () => {
     setIsAauthorLoading(true);
     const data = await fetchData({ dataFrom: `authors?author=${id}` });
     setAuthorData(data);
-    setFollower(authorData.followers)
+    setFollower(data.followers)
     setIsAauthorLoading(false);
   };
   useEffect(() => {
     fetchAuthorData();
   }, []);
-  useEffect(() => {
-    fetchAuthorData();
-  }, []);
+
 
 
   return (
@@ -135,12 +132,12 @@ const Author = () => {
                             <span id="wallet" className="profile_wallet">
                               {authorData.address}
                             </span>
-                            <button id="btn_copy" title="Copy Text" 
-                              onClick={()=>handleCopy(authorData.address)}>
+                            <button id="btn_copy" title="Copy Text"
+                              onClick={() => handleCopy(authorData.address)}>
                               Copy
                             </button>
                             <span className="text-[15px] ml-14 text-gray-500 inset-10">{copySuccess}</span>
-                            
+
                           </h4>
                         </div>
                       </div>
@@ -152,9 +149,9 @@ const Author = () => {
                         </div>
                         <Link to="#" className="btn-main" onClick={handleFollow}>
                           {
-                            !follow?"Follow":"Unfollow"
+                            !follow ? "Follow" : "Unfollow"
                           }
-                          
+
                         </Link>
                       </div>
                     </div>
