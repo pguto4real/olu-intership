@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import CounterNewItem from "../components/UI/CounterNewItem";
 
 
-const AutorCard = ({data,addDesign}) => {
-   
+const AutorCard = ({data,addDesign,authorImageData=''}) => {
+
 const {id,authorImage,authorId,title,price,likes,nftImage,nftId,expiryDate} = data
   return (
     <div
@@ -19,7 +19,7 @@ const {id,authorImage,authorId,title,price,likes,nftImage,nftId,expiryDate} = da
                 data-bs-toggle="tooltip"
                 data-bs-placement="top"
               >
-                <img className="lazy" src={authorImage} alt="" />
+                <img className="lazy" src={authorImage || authorImageData} alt="" />
                 <i className="fa fa-check"></i>
               </Link>
             </div>
