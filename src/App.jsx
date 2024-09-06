@@ -13,11 +13,14 @@ function App() {
   const [exploreData, setExploreData] = useState([]);
   const [authorData, setAuthorData] = useState([]);
   const [isAauthorLoading, setIsAauthorLoading] = useState(true);
+  const [itemData, setItemData] = useState(true);
+  const [ isItemLoading, setIsIsItemLoading] = useState(true);
 
   return (
     <Router>
       <DataContext.Provider
         value={{
+          itemData, setItemData, isItemLoading, setIsIsItemLoading,
           newItems,
           setNewItems,
           exploreData,
@@ -33,7 +36,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/author/:id" element={<Author />} />
-          <Route path="/item-details" element={<ItemDetails />} />
+          <Route path="/item-details/:id" element={<ItemDetails />} />
         </Routes>
         <Footer />
       </DataContext.Provider>
