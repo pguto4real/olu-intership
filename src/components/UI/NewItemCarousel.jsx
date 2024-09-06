@@ -42,8 +42,8 @@ const NewItemCarousel = ({ newItems }) => {
   return (
     <OwlCarousel {...options}>
       {
-        newItems.map((newItem) => (
-          <AutorCard data={newItem} addDesign={false} />
+        newItems.map((newItem,index) => (
+          <AutorCard key={index} data={newItem} addDesign={false} />
         ))
       }
 
