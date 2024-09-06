@@ -10,11 +10,11 @@ import { useState } from "react";
 
 function App() {
   const [newItems, setNewItems] = useState([])
-
+  const [exploreData, setExploreData] = useState([])
 
   return (
     <Router>
-      <DataContext.Provider value={{newItems, setNewItems}}>
+      <DataContext.Provider value={{newItems, setNewItems,exploreData, setExploreData}}>
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
