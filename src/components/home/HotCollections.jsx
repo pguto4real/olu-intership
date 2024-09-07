@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import HotCollectionSkeleton from "../UI/HotCollectionSkeleton";
 import HotCarousel from "../UI/HotCarousel";
+import AnimateOnScroll from "../UI/AnimateOnScroll";
 
 
 const HotCollections = () => {
@@ -32,6 +33,7 @@ const HotCollections = () => {
   }, [])
 
   return (
+    <AnimateOnScroll animation="fade" duration={400}  delay="0" easing="ease-in-sine">
     <section id="section-collections" className="no-bottom">
       <div className="container">
         <div className="row">
@@ -49,6 +51,7 @@ const HotCollections = () => {
         </div>
       </div>
     </section>
+    </AnimateOnScroll>
   );
 };
 

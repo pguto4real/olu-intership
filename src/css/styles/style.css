@@ -16719,3 +16719,7 @@ img {
 .no-cursor {
   cursor: not-allowed;
 }
+
+/* html:not(.no-js) [data-aos=fade-up] {
+  transform: translate3d(0, 30px, 0) !important;
+} */

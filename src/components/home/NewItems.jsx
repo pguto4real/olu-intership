@@ -4,6 +4,7 @@ import axios from "axios";
 import NewItemCarousel from "../UI/NewItemCarousel";
 
 import NewItemSkeleton from "../UI/NewItemSkeleton";
+import AnimateOnScroll from "../UI/AnimateOnScroll";
 
 const NewItems = () => {
   const [newItems, setNewItems] = useState([])
@@ -28,6 +29,7 @@ const NewItems = () => {
     fetchNewItems()
   }, [])
   return (
+    <AnimateOnScroll animation="fade" duration={400}  delay="0" easing="ease-in-sine">
     <section id="section-items" className="no-bottom">
       <div className="container">
         <div className="row">
@@ -44,6 +46,7 @@ const NewItems = () => {
         </div>
       </div>
     </section>
+    </AnimateOnScroll>
   );
 };
 
