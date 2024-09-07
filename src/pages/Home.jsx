@@ -8,7 +8,29 @@ import TopSellers from "../components/home/TopSellers";
 
 const Home = () => {
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Function to save the scroll position
+    const saveScrollPosition = () => {
+      sessionStorage.setItem('scrollPosition', window.scrollY);
+    };
+
+    // Function to restore the scroll position
+    const restoreScrollPosition = () => {
+      const scrollPosition = sessionStorage.getItem('scrollPosition');
+      if (scrollPosition) {
+        window.scrollTo(scrollPosition, parseInt(scrollPosition, 10));
+      }
+    };
+
+    // Restore scroll position on component mount
+    restoreScrollPosition();
+
+    // Save scroll position on beforeunload
+    window.addEventListener('beforeunload', saveScrollPosition);
+
+    // Clean up event listener on component unmount
+    return () => {
+      window.removeEventListener('beforeunload', saveScrollPosition);
+    };
   }, []);
 
   return (

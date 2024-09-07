@@ -7,6 +7,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { DataContext } from "./Helper/Context";
 import { useState } from "react";
+import Test from "./pages/Test";
 
 function App() {
   const [newItems, setNewItems] = useState([]);
@@ -34,6 +35,7 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/test-animation" element={<Test />} />
           <Route path="/explore" element={<Explore />} />
           <Route path="/author/:id" element={<Author />} />
           <Route path="/item-details/:id" element={<ItemDetails />} />

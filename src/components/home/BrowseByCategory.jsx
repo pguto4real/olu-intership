@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { BrowseByCategoryCard } from "../UI/BrowseByCategoryCard";
 
 const BrowseByCategory = () => {
   return (
@@ -12,42 +13,12 @@ const BrowseByCategory = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
-          <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-image"></i>
-              <span>Art</span>
-            </Link>
-          </div>
-          <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-music"></i>
-              <span>Music</span>
-            </Link>
-          </div>
-          <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-search"></i>
-              <span>Domain Names</span>
-            </Link>
-          </div>
-          <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-globe"></i>
-              <span>Virtual Worlds</span>
-            </Link>
-          </div>
-          <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-vcard"></i>
-              <span>Trading Cards</span>
-            </Link>
-          </div>
-          <div className="col-md-2 col-sm-4 col-6 mb-sm-30">
-            <Link to="/explore" className="icon-box style-2 rounded">
-              <i className="fa fa-th"></i>
-              <span>Collectibles</span>
-            </Link>
-          </div>
+          <BrowseByCategoryCard text="Art" icon="fa-image" />
+          <BrowseByCategoryCard text="Music" icon="fa-music" />
+          <BrowseByCategoryCard text="Domain Names" icon="fa-search" />
+          <BrowseByCategoryCard text="Virtual Worlds" icon="fa-globe" />
+          <BrowseByCategoryCard text="Trading Cards" icon="fa-vcard" />
+          <BrowseByCategoryCard text="Collectibles" icon="fa-th" />
         </div>
       </div>
     </section>

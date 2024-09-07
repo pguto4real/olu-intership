@@ -5,6 +5,7 @@ import GetData from "../../Hooks/GetData";
 import { DataContext } from "../../Helper/Context";
 import TopSeller from "../UI/TopSeller";
 import TopSellerSkelenton from "../UI/TopSellerSkelenton";
+import AnimateOnScroll from "../UI/AnimateOnScroll";
 
 const TopSellers = () => {
   const { newItems, setNewItems } = useContext(DataContext)
@@ -32,6 +33,7 @@ const TopSellers = () => {
               <div className="small-border bg-color-2"></div>
             </div>
           </div>
+          <AnimateOnScroll animation="fade" duration={400}  delay="0" easing="ease-in-sine">
           <div className="col-md-12">
             <ol className="author_list">
               {
@@ -39,6 +41,7 @@ const TopSellers = () => {
               }
             </ol>
           </div>
+          </AnimateOnScroll>
         </div>
       </div>
     </section>
